@@ -11,5 +11,5 @@
 3. Silo Actons
     - [x] Read all gardens
     - [x] Read one garden
-    - [ ] Create a garden's plant
-    - [ ] Delete a garden's plant 
+    - [x] Create a garden's plant
+    - [ ] Delete a garden's plant
