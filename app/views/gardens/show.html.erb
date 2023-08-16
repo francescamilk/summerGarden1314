@@ -1,0 +1,9 @@
+<h1><%= @garden.name %></h1>
+
+<div class="row">
+    <% @plants.each do |plant| %>
+        <div class="col-4 card card-flex" style="background: url('<%= plant.image_url %>')">
+            <h3><%= plant.name %></h3>
+        </div>
+    <% end %>
+</div>

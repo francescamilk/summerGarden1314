@@ -1,0 +1,13 @@
+<h1>All Gardens</h1>
+
+<div class="row">
+    <% @gardens.each do |garden| %>
+        <div class="col-4">
+            <%= link_to garden_path(garden) do %>
+                <div class="card card-flex" style="background: url('<%= garden.image_url %>')">
+                    <h3><%= garden.name %></h3>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

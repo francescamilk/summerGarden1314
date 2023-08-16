@@ -1,0 +1,12 @@
+.card {
+    height: 10rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
