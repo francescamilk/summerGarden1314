@@ -4,6 +4,23 @@
     <% @plants.each do |plant| %>
         <div class="col-4 card card-flex" style="background: url('<%= plant.image_url %>')">
             <h3><%= plant.name %></h3>
+            <p>
+                <%= 
+                    link_to "Delete", plant_path(plant),
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } 
+                %>
+            </p>
         </div>
     <% end %>
 </div>
+
+<h2>Add Plant</h2>
+<%= simple_form_for [@garden, @plant] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :image_url %>
+    <%= f.submit %>
+<% end %>
+
+<%= render @card, title: "Reviews" %>
+
+<%= render @card, title: "Restaurants" %>
