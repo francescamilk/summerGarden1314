@@ -4,7 +4,7 @@
     <% @gardens.each do |garden| %>
         <div class="col-4">
             <%= link_to garden_path(garden) do %>
-                <div class="card card-flex" style="background: url('<%= garden.image_url %>')">
+                <div class="card card-flex" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<%= garden.image_url %>')">
                     <h3><%= garden.name %></h3>
                 </div>
             <% end %>

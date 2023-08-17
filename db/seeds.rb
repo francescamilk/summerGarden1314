@@ -59,3 +59,8 @@ ginseng = Plant.create!(
   image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCBvtVWRhxHA-oEsmYO9dTODv6Pjmfi199Kg&usqp=CAU',
   garden: japanese
 )
+
+Tag.create!(name: "flower")
+Tag.create!(name: "plant")
+Tag.create!(name: "evergreen")
+Tag.create!(name: "succulent")

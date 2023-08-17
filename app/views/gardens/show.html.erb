@@ -1,26 +1,53 @@
-<h1><%= @garden.name %></h1>
+<section id="show">
+    <h1><%= @garden.name %></h1>
 
-<div class="row">
-    <% @plants.each do |plant| %>
-        <div class="col-4 card card-flex" style="background: url('<%= plant.image_url %>')">
-            <h3><%= plant.name %></h3>
-            <p>
-                <%= 
-                    link_to "Delete", plant_path(plant),
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } 
-                %>
-            </p>
-        </div>
+    <div class="row">
+        <% @plants.each do |plant| %>
+            <div class="col-4 card card-flex" style="background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('<%= plant.image_url %>')">
+                <h3><%= plant.name %></h3>
+                <p>
+                    <%= 
+                        link_to "Delete", plant_path(plant),
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } 
+                    %>
+                    <p id="openModal" data-plant="<%= plant.id %>">Add Tag</p>
+                </p>
+                <div class="d-flex">
+                    <% plant.tags.each do |tag| %>
+                        <%= Tag::ICONS[tag.name] %>
+                    <% end %>
+                </div>
+            </div>
+
+
+            <div id="<%= plant.id %>" class="d-none modal-wrapper">
+                <div class="my-modal">
+                    <%= simple_form_for [plant, @plant_tag] do |f| %>
+                        <%= f.association :tag %>
+                        <%= f.submit %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <h2>Add Plant</h2>
+    <%= simple_form_for [@garden, @plant] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :image_url %>
+        <%= f.submit %>
     <% end %>
-</div>
 
-<h2>Add Plant</h2>
-<%= simple_form_for [@garden, @plant] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :image_url %>
-    <%= f.submit %>
-<% end %>
+    <script>
+        const btns   = document.querySelectorAll('#openModal');
 
-<%= render @card, title: "Reviews" %>
+        btns.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                const plantId = e.target.dataset.plant
+                const modal = document.getElementById(plantId)
 
-<%= render @card, title: "Restaurants" %>
+                modal.classList.remove('d-none');
+            });
+        });
+    </script>
+</section>

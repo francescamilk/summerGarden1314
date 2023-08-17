@@ -8,5 +8,6 @@ class GardensController < ApplicationController
         @plants = @garden.plants
 
         @plant = Plant.new
+        @plant_tag = PlantTag.new
     end
 end

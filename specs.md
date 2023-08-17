@@ -12,4 +12,8 @@
     - [x] Read all gardens
     - [x] Read one garden
     - [x] Create a garden's plant
-    - [ ] Delete a garden's plant
+    - [x] Delete a garden's plant
+
+------
+    - [ ] Add a tag to a plant (adding a plant_tag)
+    - [ ] Delete a tag from a plant (deleting a plant_tag)

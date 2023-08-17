@@ -1,12 +1,46 @@
+a,
+a:hover {
+    text-decoration: none;
+}
+
 .card {
     height: 10rem;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.card h3 {
+    color: #fff;
+}
+
+.card:hover {
+    height: 11rem;
 }
 
 .card-flex {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#show {
+    position: relative;
+}
+
+.modal-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+
+.my-modal {
+    padding: 20px;
+    background: #fff;
+    z-index: 1001;
 }
